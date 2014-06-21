@@ -32,13 +32,17 @@ class ProtocolFactory(Factory):
     
     def buildProtocol(self):
         
+        if PROTOCOLS <= self.protocols:
+            print 'protocols is over !!!'
+            return
+        
         self.protocols += 1
         
         return ChatProtocol(self)
 
 
-if __name__ == '__main__':
-    
+
+def start(port):
     FACTORY = ProtocolFactory()
-    reactor.listenTCP(PORT,FACTORY)
+    reactor.listenTCP(port,FACTORY)
     reactor.run()

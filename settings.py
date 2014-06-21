@@ -5,9 +5,10 @@ PORT = 8123
 PROTOCOLS = 1000
 
 DATABASE = {
-            'ip':'127.0.0.1',
-            'username':'root',
-            'passport':'root'
+            'sqlite':{
+                      'db_path':'/Users/dy/github/chatRoom/database.db'
+                      },
+            'mysql':None
             }
 
 if __name__ == '__main__':
