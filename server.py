@@ -6,18 +6,18 @@ from twisted.internet import reactor
 
 from settings import *
 
-from msg import Message
-
-FACTORY = None
+FACTORY = 100
 
 class ChatProtocol(Protocol):
     
     def __init__(self,factory):
         self.factory = factory
-        print '__init__'
+        
+    def connectionMade(self):
+        pass
     
     def dataReceived(self, data):
-        print '...dataReceived'
+        print data
     
     def connectionLost(self, reason):
         print '...connectionLost'
@@ -25,18 +25,14 @@ class ChatProtocol(Protocol):
 
 class ProtocolFactory(Factory):
     
-    protocols = 0
-    
     def __init__(self):
         pass
     
-    def buildProtocol(self):
+    def buildProtocol(self,addr):
         
         if PROTOCOLS <= self.protocols:
             print 'protocols is over !!!'
             return
-        
-        self.protocols += 1
         
         return ChatProtocol(self)
 
@@ -46,3 +42,10 @@ def start(port):
     FACTORY = ProtocolFactory()
     reactor.listenTCP(port,FACTORY)
     reactor.run()
+    
+    
+if __name__ == '__main__':
+    start(8192)
+    
+    
+    
