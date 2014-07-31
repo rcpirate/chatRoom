@@ -9,6 +9,5 @@ def create_db(type):
     except:
         raise 'open database failed ...'
 
-
 if __name__ == '__main__':
     pass
