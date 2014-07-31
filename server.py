@@ -15,7 +15,6 @@ class ChatProtocol(Protocol):
     
     def __init__(self,factory):
         self.factory = factory
-<<<<<<< HEAD
         
     def connectionMade(self):
         print self.transport.getHost()
@@ -24,12 +23,6 @@ class ChatProtocol(Protocol):
     def dataReceived(self, data):
         dispath(self,data)
         print data
-=======
-        print '__init__'
-    
-    def dataReceived(self, data):
-        print '...dataReceived'
->>>>>>> FETCH_HEAD
     
     def connectionLost(self, reason):
         print '...connectionLost'
