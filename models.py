@@ -1,4 +1,4 @@
-#code:utf-8
+# -*- coding: utf-8 -*- 
 
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Table, Column, Integer, String, MetaData, ForeignKey
@@ -36,6 +36,7 @@ def create_database():
     
     Session = sessionmaker(bind=engine)
     session = Session()
+
 
 if not session:
     create_database()

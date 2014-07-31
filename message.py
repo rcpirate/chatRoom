@@ -1,10 +1,14 @@
-#code:utf-8
+# -*- coding: utf-8 -*- 
 
-class Message(object):
+def data_parse(data):
+    '''数据解压'''
+    pass
+
+
+class MessageBase(object):
     '''
     classdocs
     '''
-
 
     def __init__(self, params):
         '''
