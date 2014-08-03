@@ -7,8 +7,6 @@ from twisted.internet import reactor
 from settings import *
 from controller import dispath
 
-from msg import Message
-
 FACTORY = None
 
 class ChatProtocol(Protocol):
