@@ -1,4 +1,4 @@
-#code:utf-8
+# -*- coding: utf-8 -*- 
 
 PORT = 8123
 
