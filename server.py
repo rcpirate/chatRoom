@@ -1,13 +1,12 @@
-# -*- coding: utf-8 -*- 
+#code:utf-8
 
 from twisted.internet.protocol import Protocol
 from twisted.internet.protocol import Factory
 from twisted.internet import reactor
 
 from settings import *
-from controller import dispath
 
-FACTORY = None
+FACTORY = 100
 
 class ChatProtocol(Protocol):
     
@@ -15,11 +14,9 @@ class ChatProtocol(Protocol):
         self.factory = factory
         
     def connectionMade(self):
-        print self.transport.getHost()
         pass
     
     def dataReceived(self, data):
-        dispath(self,data)
         print data
     
     def connectionLost(self, reason):
@@ -28,24 +25,27 @@ class ChatProtocol(Protocol):
 
 class ProtocolFactory(Factory):
     
-    protocols = 0
-    
     def __init__(self):
         pass
     
-    def buildProtocol(self):
+    def buildProtocol(self,addr):
         
-        if PROTOCOLS <= self.protocol:
+        if PROTOCOLS <= self.protocols:
             print 'protocols is over !!!'
             return
-        
-        self.protocols += 1
         
         return ChatProtocol(self)
 
 
+
 def start(port):
     FACTORY = ProtocolFactory()
-    reactor.listenTCP(8193,FACTORY)
     reactor.listenTCP(port,FACTORY)
     reactor.run()
+    
+    
+if __name__ == '__main__':
+    start(8192)
+    
+    
+    
