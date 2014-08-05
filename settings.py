@@ -1,14 +1,17 @@
-#code:utf-8
+# -*- coding: utf-8 -*- 
 
 PORT = 8123
 
-PROTOCOLS = 1000
+#最大连接数
+MAX_PROTOCOLS = 100
+
+#线程最大数
+MAX_THREADS = 50
+
 
 DATABASE = {
-            'sqlite':{
-                      'db_path':'/Users/dy/github/chatRoom/database.db'
-                      },
-            'mysql':None
+            'engine':'sqlite',
+            'address':'/Users/rcpirate/github/chatRoom/chatroom.db'
             }
 
 if __name__ == '__main__':
