@@ -1,4 +1,4 @@
-# -*-cod:utf-8 -*-
+# -*-coding:utf-8 -*-
 
 from twisted.internet.protocol import Protocol
 from twisted.internet.protocol import Factory

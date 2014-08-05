@@ -1,4 +1,4 @@
-# -*-cod:utf-8 -*-
+# -*-coding:utf-8 -*-
 
 from settings import *
 from sqlalchemy import create_engine
