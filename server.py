@@ -5,8 +5,7 @@ from twisted.internet.protocol import Factory
 from twisted.internet import reactor
 
 from settings import *
-
-FACTORY = 100
+from controller import dispatch
 
 class ChatProtocol(Protocol):
     
@@ -30,7 +29,7 @@ class ProtocolFactory(Factory):
     
     def buildProtocol(self,addr):
         
-        if PROTOCOLS <= self.protocols:
+        if MAX_PROTOCOLS <= self.protocols:
             print 'protocols is over !!!'
             return
         

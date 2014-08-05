@@ -4,10 +4,12 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Table, Column, Integer, String, MetaData, ForeignKey
 from sqlalchemy.engine import create_engine
 from sqlalchemy.orm import sessionmaker
+
 import os
 from settings import DATABASE
 
-session = None
+engine = None
+Session = None
 
 Base = declarative_base()
 
@@ -26,7 +28,7 @@ class User(Base):
     
     
 def create_database():
-    engine = None
+    global enigne
     if DATABASE['engine'] == 'sqlite':
         engine = create_engine('sqlite:///'+DATABASE['address'], echo=True)
     if not engine:
@@ -34,10 +36,10 @@ def create_database():
     if not os.path.exists(DATABASE['address']):
         Base.metadata.create_all(engine)
     
+    global Session
     Session = sessionmaker(bind=engine)
-    session = Session()
 
-if not session:
+if not Session:
     create_database()
 
     

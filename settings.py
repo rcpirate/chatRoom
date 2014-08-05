@@ -2,7 +2,12 @@
 
 PORT = 8123
 
-PROTOCOLS = 1000
+#最大连接数
+MAX_PROTOCOLS = 100
+
+#线程最大数
+MAX_THREADS = 50
+
 
 DATABASE = {
             'engine':'sqlite',
