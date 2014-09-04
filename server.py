@@ -29,7 +29,7 @@ class ProtocolFactory(Factory):
     
     def buildProtocol(self,addr):
         
-        if MAX_PROTOCOLS <= self.protocols:
+        if MAX_PROTOCOLS >= self.protocols:
             print 'protocols is over !!!'
             return
         
