@@ -1,5 +1,5 @@
 # -*-coding:utf-8 -*-
-
+from twisted.application import internet,service
 from twisted.internet.protocol import Protocol
 from twisted.internet.protocol import Factory
 from twisted.internet import reactor
@@ -25,7 +25,7 @@ class ChatProtocol(Protocol):
 class ProtocolFactory(Factory):
     
     def __init__(self):
-        pass
+        print 'ProtocolFactory is create ...'
     
     def buildProtocol(self,addr):
         
@@ -35,7 +35,11 @@ class ProtocolFactory(Factory):
         
         return ChatProtocol(self)
 
-
+def start_application(port):
+    application = service.Application('chatRoom', 1, 1)
+    factory = ProtocolFactory()
+    tcpServer = internet.TCPServer(port,factory)
+    tcpServer.setServerParent(service.IServiceCollection(application))
 
 def start(port):
     FACTORY = ProtocolFactory()

@@ -2,6 +2,7 @@
 <<<<<<<=HEAD
 >>>>>>>=FETCH_HEAD
 eclipse.preferences.version=1
+encoding/client.py=utf-8
 encoding/controller.py=utf-8
 encoding/manage.py=utf-8
 encoding/message.py=utf-8
