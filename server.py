@@ -1,4 +1,7 @@
 # -*-coding:utf-8 -*-
+'''
+针对恶意连接，如果发现连接过来发送的协议格式不正确就加入到，拒绝连接的列表中去
+'''
 from twisted.application import internet,service
 from twisted.internet.protocol import Protocol
 from twisted.internet.protocol import Factory

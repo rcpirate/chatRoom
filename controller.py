@@ -12,12 +12,14 @@ def data_parse(data):
     '''数据解压'''
     pass
 
+
 def dispatch(chatProtocol,data):
     '''数据分发
     主要根据任务量来分发给子线程处理
     '''
     data_parse(data)
-    pass
+    
+
 
 class Controller(object):
     '''根据业务量来创建子线程处理业务'''
